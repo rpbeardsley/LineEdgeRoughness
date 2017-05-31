@@ -9,7 +9,7 @@ import matplotlib.ticker as ticker
 image = cv2.imread("Spec_test.bmp")
 
 LER = edge_roughness()
-(Xcln, Ycln, freq, FourierPow) = LER.LER_analysis(image, 50e-6, 2) #image, im_wdth, thresh
+(Xcln, Ycln, freq, FourierPow) = LER.LER_analysis(image, 50e-6, 2) #image, image width (m), threshold for outliers
 
 
 plt.plot(Xcln, Ycln, '-')
@@ -23,8 +23,6 @@ plt.xlabel('cycles (m$^{-1}$)')
 plt.ylabel('Fourier power (au)')
 plt.title('Fourier power spectrum')
 plt.show() 
-#stitcher = Stitcher()
-#(result, vis) = stitcher.stitch([imageA, imageB], showMatches=True)
 
 cv2.imshow('Origional Image',image)
 cv2.waitKey(0)
