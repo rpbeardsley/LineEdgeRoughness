@@ -1,21 +1,12 @@
 
 
 import cv2 #(OpenCV3)
-import argparse
 from LER import edge_roughness
 from matplotlib import pyplot as plt
 import matplotlib.ticker as ticker
 
 
-# construct the argument parse and parse the arguments
-ap = argparse.ArgumentParser()
-ap.add_argument("-f", "--Image", required=True,
-	help="path to the first image")
-args = vars(ap.parse_args())
-
-image = cv2.imread(args["Image"])
-
-#image = cv2.imread("C:/Users/ppzrb/Documents/Quantum technology/Code/line_edge_roughness/Spec_test.bmp")
+image = cv2.imread("Spec_test.bmp")
 
 LER = edge_roughness()
 (Xcln, Ycln, freq, FourierPow) = LER.LER_analysis(image, 50e-6, 2) #image, im_wdth, thresh
